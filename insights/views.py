@@ -5,7 +5,7 @@ from django.views import View
 
 class InsightsView(View):
     def get(self, request):
-        return HttpResponse("Get Insights")
+        return render(request,"insights.html",None,None)
     
     def post(self, request):
         return HttpResponse("Post Insights")

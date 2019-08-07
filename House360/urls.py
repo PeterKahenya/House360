@@ -1,4 +1,3 @@
-
 from django.contrib import admin
 from django.urls import path
 from django.conf import settings
@@ -15,5 +14,5 @@ urlpatterns = [
     path('properties', PropertiesView.as_view()),
     path('insights', InsightsView.as_view()),
     path('chatbot', ChatbotView.as_view()),
-    path('crawl', CrawlerView.as_view()),
+    path('crawler', CrawlerView.as_view()),
 ]
