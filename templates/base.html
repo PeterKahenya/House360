@@ -6,24 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <title>House360|{% block title %}
     {% endblock title %}</title>
 </head>
 <body>
-<div class="container">
-    <a href="/">Home</a>
-    <a href="/properties">Properties</a>
-    <a href="/insights">Insights</a>
-    <a href="/chatbot">Chatbot</a>
-    <a href="/crawler">Crawler</a>
+    <div class="my_header shadow-sm">
+        <div class="my_logo">
+                <a href="/">House360</a>
+        </div>
+        <div class="my_menu">
+                <a href="/properties">Properties</a>
+                <a href="/insights">Insights</a>
+                <a href="/chatbot">Chatbot</a>
+                <a href="/crawler">Crawler</a>
+        </div>
     
-    
-    
+    </div>
     {% block content %}
     
     {% endblock content %}
-    
-</div>
+
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/popper.js' %}"></script>

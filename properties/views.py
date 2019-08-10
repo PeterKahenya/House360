@@ -5,7 +5,7 @@ from django.views import View
 
 class PropertiesView(View):
     def get(self, request):
-        return render(request,"properties.html",None,None)
+        return render(request,"properties.html",{'properties':[1,34,23,4,5,6,6]},None)
     
     def post(self, request):
         return HttpResponse("Post Properties")
