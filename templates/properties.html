@@ -7,7 +7,9 @@ Properties
 
 {% block content %}
 {% load static %}
+<div class="container">
  <h1>House360 Properties List</h1>
+ {% include 'nav.html' %}
  <div style="display:flex;flex-wrap: wrap;flex-direction: row;">
 {% for x in properties %}
             <div class="card" style="width: 18rem;margin: 20px;">
@@ -19,5 +21,6 @@ Properties
                 </div>
             </div>
 {% endfor %}
+</div>
 </div>
 {% endblock content %}

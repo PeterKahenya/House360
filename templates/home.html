@@ -8,30 +8,30 @@ Home
 {% block content %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}">
-<div class="container">
 
-    <div class="home">
-        <div class="container">
-            <div class="introbar">
-                    <h1>Housing,Insights, all in one place</h1>
+<div class="home">
+    <div class="introbar" style="color: gainsboro;">
+        <h1>
+            Housing & Insights all in one place.
+        </h1>
+                        
+        {% include 'nav.html' %}
 
-            </div>
-            
-        </div>
-    </div>
-    <h1>Recent Properties</h1>
-    <div style="display:flex;flex-wrap: wrap;flex-direction: row;">
-        {% for x in common %}
-            <div class="card" style="width: 18rem;margin: 20px;">
-                <img src="{% static 'img/city_3.jpg' %}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        {% endfor %}
-        
     </div>
 </div>
+
+    <h1>Recent Properties</h1>
+<div id="properties-list">
+    {% for x in common %}
+        <div class="card" style="width: 18rem;margin: 20px;">
+            <img src="{% static 'img/city_3.jpg' %}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
 {% endblock content %}
