@@ -1,0 +1,11 @@
+#filter{
+	background-color: rgb(221, 221, 221);
+	display: none;
+	padding: 20px;
+}
+
+#properties-list{
+	display:flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
