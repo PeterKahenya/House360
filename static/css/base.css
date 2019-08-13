@@ -9,10 +9,11 @@ body,html{
     display: flex;
     justify-content: space-between;
     padding: 10px 100px;
+    background-color: rgb(0, 70, 128);
 }
 
 .my_logo a{
-    color: #ec5700;
+    color: silver;
     font-size: 20px;
     font-weight: bolder;
     text-decoration: none;
@@ -28,12 +29,14 @@ body,html{
     margin: 0 10px;
     font-size: 18px;
     text-decoration: none;
-    color: #ec5700;
+    color: silver;
+    border: 1px solid transparent;
     padding: 5px;
 }
 
 .my_menu a:hover{
-    border: 1px solid #ec5700;
-    border-radius: 20px;
+    border: 1px solid white;
+    color: rgb(0, 70, 128);
+    background-color: whitesmoke;
 
 }

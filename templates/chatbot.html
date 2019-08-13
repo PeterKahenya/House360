@@ -2,10 +2,30 @@
 
 
 
-
+{% load static %}
 {% block title %}
 Assistant
 {% endblock title %}
 {% block content %}
- <h1>House360 Assistant Bot</h1>
+<link rel="stylesheet" href="{% static 'css/chatbox.css' %}">
+ <div class="chat">
+    <div class="title">
+        <h5>House360 Bot</h5>
+        <h6>Online</h6>
+    </div>
+
+    <div class="chat-container">
+        <div class="logs" >
+            Logs
+        </div>
+        <form action="" method="POST" class="chatbox">
+            {% csrf_token %}
+            <input multiple style="height: 99%; border: none;border-radius: 20px;width: 60%;" type="text" class="form-control" name="query" placeholder="Type a message..." id="">
+            <button style="height: 99%;margin-left: 2px;" type="submit" class="btn btn-primary">
+                Send
+            </button>
+        </div>
+    </div>
+    
+ </div>
 {% endblock content %}

@@ -53,8 +53,8 @@ def crawl_house(url):
         
 
      return result
-
-url = 'https://www.the-star.co.ke/classifieds/house-apartment-for-rent/house--nairobi'
-crawl  = crawl_house(url)
-with open("star.json","w") as f:
-    f.write(str(crawl)) 
+if __name__=='__main__':
+    url = 'https://www.the-star.co.ke/classifieds/house-apartment-for-rent/house--nairobi'
+    crawl  = crawl_house(url)
+    with open("star.json","w") as f:
+        f.write(str(crawl)) 

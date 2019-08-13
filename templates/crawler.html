@@ -8,4 +8,10 @@ Crawler
 {% endblock title %}
 {% block content %}
  <h1>House360 Crawler</h1>
+<form action="" method="post">
+    {% csrf_token %}
+    <input type="text" name="url" id="" class="form-control" placeholder="Enter the url to crawl...">
+    <input type="text" name="site" id="" class="form-control" placeholder="Enter the site to crawl...">
+    <button type="submit" class="btn btn-primary">Crawl</button>
+</form>
 {% endblock content %}

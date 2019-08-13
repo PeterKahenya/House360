@@ -1,0 +1,29 @@
+.chat{
+    margin:20px 30%; 
+    height: 500px; 
+    background-color: whitesmoke;
+    border-radius: 20px;
+    border: 1px solid rgb(0, 70, 128);
+}
+.title{
+    background-color: rgb(255, 255, 255);
+    color:rgb(0, 70, 128);
+    padding: 0 10px;
+    border-top-left-radius:  20px;
+    border-top-right-radius:  20px;
+    height: 10%;
+    box-shadow:0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+.chat-container{
+    height: 90%;
+}
+.logs{
+    height: 88%;
+}
+.chatbox{
+    display: flex;
+    height: 12%;
+    padding: 0 50px;
+    border-bottom-left-radius: 20px;
+}
