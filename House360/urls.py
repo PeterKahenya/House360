@@ -15,4 +15,4 @@ urlpatterns = [
     path('insights', InsightsView.as_view()),
     path('chatbot', ChatbotView.as_view()),
     path('crawler', CrawlerView.as_view()),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

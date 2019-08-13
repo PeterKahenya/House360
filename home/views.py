@@ -1,11 +1,14 @@
 from django.shortcuts import render
-from django.http import  HttpResponse
+from django.http import HttpResponse
 from django.views import View
+from properties.models import Property
 
 
 class HomeView(View):
     def get(self, request):
-        return render(request,'home.html',{'common':[1,2,3,4,5]},None)
-    
+        properties = Property.objects.all()
+        return render(request, 'home.html', {'properties': properties}, None)
+
     def post(self, request):
-        return HttpResponse("Post Homepage")
+        properties = Property.objects.all()
+        render(request, 'home.html', {'properties': properties}, None)

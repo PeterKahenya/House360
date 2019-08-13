@@ -1,11 +1,16 @@
 from django.shortcuts import render
-from django.http import  HttpResponse
+from django.http import HttpResponse
 from django.views import View
+from .models import Property
+from django.db.models import Q
 
 
 class PropertiesView(View):
     def get(self, request):
-        return render(request,"properties.html",{'properties':[1,34,23,4,5,6,6]},None)
-    
+        properties = Property.objects.all()
+        return render(request, "properties.html", {'properties': properties}, None)
+
     def post(self, request):
-        return HttpResponse("Post Properties")
+        term = request.POST['term']
+        properties = Property.objects.filter(Q(title__icontains=term)|Q(description__icontains=term))
+        return render(request, "properties.html", {'properties': properties}, None)

@@ -37,7 +37,7 @@ def crawl_house(url):
             output.close()
 
             property.path = link
-            property.image_url = path
+            property.image_url = image
             property.title = title
             property.price = price
             property.location = location
