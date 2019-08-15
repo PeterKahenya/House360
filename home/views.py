@@ -8,7 +8,8 @@ from django.db.models import Q
 class HomeView(View):
     def get(self, request):
         properties = Property.objects.all()
-        return render(request, 'home.html', {'properties': properties}, None)
+        locations=Property.objects.order_by().values('location').distinct()
+        return render(request, 'home.html', {'properties': properties,'locations':locations}, None)
 
     def post(self, request):
         term = request.POST['term']

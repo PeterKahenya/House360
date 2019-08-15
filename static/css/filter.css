@@ -2,6 +2,8 @@
 	background-color: #00000080;
 	display: none;
 	padding: 20px;
+	
+	flex-direction: column;
 }
 
 #properties-list{
