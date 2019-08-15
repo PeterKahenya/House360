@@ -4,8 +4,14 @@ import datetime
 import urllib
 from django.conf import settings
 import os
+import re
 from properties.models import Property
 
+def extract_value(val):
+    x=re.findall(r'\d+', val.replace(',',''))
+    if x:
+        return x[0]
+    return 0 
 
 def verify(tag):
     if tag is not None:
@@ -22,22 +28,32 @@ def crawl_house(url):
         property = Property()
         try:
             title = verify(section.find('h2', {'class': 'product-title'}))
+
             image = "https:"+section.find('img', {'class': 'image_List'}).get("data-src")
-            price = verify(section.find('div', {'class': 'product-price'}))
+
+            price = extract_value(verify(section.find('div', {'class': 'product-price'})))
+
             location = verify(section.find('p', {'class': 'product-top-meta'}))
+
             description = verify(section.find('p', {'class': 'product-description'}))
-            bathroom = verify(section.find('div', {'class': 'real_estate__number_of_bathrooms'}))
-            bedroom = verify(section.find('div', {'itemprop': 'numberOfRooms'}))
-            area = verify(section.find('div', {'itemprop': 'floorSize'}))
+
+            bathroom = extract_value(verify(section.find('div', {'class': 'real_estate__number_of_bathrooms'})))
+
+            bedroom = extract_value(verify(section.find('div', {'itemprop': 'numberOfRooms'})))
+
+            area = extract_value(verify(section.find('div', {'itemprop': 'floorSize'})))
+
             link = section.find('a', {'class': 'product-link js_product-link'}).get('href')
-            path = os.path.join(settings.MEDIA_ROOT, "images/"+str(datetime.datetime.now().microsecond) + ".jpg")
+            
+            specific=str(datetime.datetime.now().microsecond) + ".jpg"
+            path =os.path.join(os.path.join(settings.MEDIA_ROOT, 'images'),specific)
             resource = urllib.request.urlopen(image)
             output = open(path, "wb")
             output.write(resource.read())
             output.close()
 
             property.path = link
-            property.image_url = image
+            property.image_url = specific
             property.title = title
             property.price = price
             property.location = location

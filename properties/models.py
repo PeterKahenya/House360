@@ -7,13 +7,13 @@ class Property(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True,primary_key=True,editable=False)
     path=models.URLField(max_length=200)
     title=models.CharField(max_length=250)
+    description=models.TextField(max_length=2000)
     location=models.CharField(max_length=250)
     image_url=models.URLField(max_length=200)
-    price = models.CharField(default="", max_length=20,null=True)
-    bathroom=models.CharField(max_length=2000)
-    bedroom=models.CharField(max_length=2000)
-    area=models.CharField(max_length=2000)
-    description=models.CharField(max_length=2000)
+    price = models.FloatField(default=0.00)
+    bathroom=models.IntegerField(default=0)
+    bedroom=models.IntegerField(default=0)
+    area=models.IntegerField(default=0)
 
 
     class Meta:

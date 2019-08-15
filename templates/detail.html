@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+Property
+{% endblock title %}
+{% block content %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <div class="container">
+        <div class="shadow-lg card" style="width: 100%;margin: 20px;">
+            <h1 style="text-align: center;padding: 10px;" class="card-title text-primary">{{property.title}}</h1>
+            <img src="/media/images/{{property.image_url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h3 class="text-primary">{{property.price}}</h3>
+                <p class="card-text">{{property.description}}</p>
+                <a href="{{property.path}}" class="btn btn-primary">Buy Property</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

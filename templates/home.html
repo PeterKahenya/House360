@@ -15,7 +15,7 @@ Home
             Housing & Insights all in one place.
         </h1>
                         
-        {% include 'nav.html' %}
+        {% include 'filter.html' %}
 
     </div>
 </div>
@@ -23,12 +23,13 @@ Home
     <h3 class="text-secondary">Recent Properties</h3>
     <div id="properties-list">
         {% for property in properties %}
-            <div class="card" style="width: 18rem;margin: 20px;">
-                <img src="{{property.image_url}}" class="card-img-top" alt="...">
+            <div class="card" style="width: 20rem;margin: 20px;">
+                <img src="/media/images/{{property.image_url}}" class="card-img-top" alt="...">
                 <div class="card-body">
+                    <h3 class="text-primary">{{property.price}}</h3>
                     <h5 class="card-title">{{property.title}}</h5>
                     <p class="card-text">{{property.description}}</p>
-                    <a href="{{property.path}}" class="btn btn-primary">Go somewhere</a>
+                    <a href="/properties/{{property.id}}" class="btn btn-primary">View more</a>
                 </div>
             </div>
         {% endfor %}
